@@ -50,4 +50,24 @@ public class Location {
 	public InventaireSortie getInventaireSortie() {
 		return inventaireSortie;
 	}
+	
+	public void setInventaireEntree(InventaireEntree inventaireEntree) {
+		this.inventaireEntree = inventaireEntree;
+	}
+	
+	public void setInventaireSortie(InventaireSortie inventaireSortie) {
+		this.inventaireSortie = inventaireSortie;
+	}
+	
+	public String getInventaireStatus() {
+		if(inventaireEntree != null && inventaireSortie == null) {
+			return "1";
+		}
+		else if (inventaireEntree == null && inventaireSortie == null ) {
+			return "2";
+		}else {
+			return "3";
+		}
+		
+	}
 }

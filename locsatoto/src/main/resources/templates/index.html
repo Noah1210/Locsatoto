@@ -10,7 +10,11 @@
 
   </head>
   <body>
+  	
   <div class="text-center">
+  <div th:if="${message}" class="alert alert-success" role="alert">
+    	<p th:text="${message}"></p>
+	</div>
   <h1>Liste des locations</h1>
   <table class="table table-stripped table-hover">
   <thead>
@@ -28,11 +32,14 @@
       <th th:text="${loca.getDateCreation()}"></th>
       <th th:text="${loca.getAppartement().getNom}"></th>
       <th th:text="${loca.getAppartement().getAdresse}"></th>
-      <th><button type="button" onclick="window.location.href='entree';" class="btn btn-outline-info">Inventaire de sortie</button></th>
+      <td th:switch="${loca.getInventaireStatus()}">
+      	<a th:case="'1'" th:href="'sortie/'+${loca.getCode()}"><button  type="button" class="btn btn-outline-danger">Inventaire de sortie</button></a>
+      	<a th:case="'2'" th:href="'entree/'+${loca.getCode()}"><button  type="button" class="btn btn-outline-info">Inventaire d'entree</button></a>
+      	<span th:case="'3'">Inventaire déja réaliser</span>
+      </td>
     </tr>
   </tbody>
 </table>
-<button type="button" onclick="window.location.href='entree';" class="btn btn-outline-info">Réaliser un inventaire d'entrée</button>
 </div>
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

@@ -1,11 +1,10 @@
 package com.pardon.locsatoto.sevices;
 
-import java.util.List;
 
-import com.pardon.locsatoto.entities.Location;
+import com.pardon.locsatoto.entities.InventaireSortie;
 
 public interface IInventaireSortieService  {
 	
-	public List<Location> locsEnCour() ;
+	public void saveInventaireSortie(InventaireSortie invS);
 
 }

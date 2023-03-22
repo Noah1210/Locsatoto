@@ -14,7 +14,7 @@ public class Evaluation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String commment;
+	private String commentaire;
 	
 	@OneToOne
 	private Etat etat;
@@ -26,8 +26,19 @@ public class Evaluation {
 		
 	}
 	
-	public String getCommment() {
-		return commment;
+	
+	
+	public Evaluation(String commentaire, Etat etat, Equipement equipement) {
+		super();
+		this.commentaire = commentaire;
+		this.etat = etat;
+		this.equipement = equipement;
+	}
+
+
+
+	public String getCommentaire() {
+		return commentaire;
 	}
 	
 	public Etat getEtat() {

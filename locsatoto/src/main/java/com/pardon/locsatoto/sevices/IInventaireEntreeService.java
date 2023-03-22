@@ -7,5 +7,6 @@ import com.pardon.locsatoto.entities.Location;
 
 public interface IInventaireEntreeService  {
 	
-
+	public void saveInventaireEntree(InventaireEntree invE);
+	
 }
